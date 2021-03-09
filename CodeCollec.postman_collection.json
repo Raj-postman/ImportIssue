@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "2580dde5-d796-4900-be5e-5d108e7bf7a5",
+		"name": "CodeCollec",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var DataOne= pm.environment.get(\"Value1\");",
+							"var DataTwo= pm.environment.get(\"Value2\");",
+							"var DataThree= pm.environment.get(\"Value3\");",
+							"",
+							"console.log(DataOne)",
+							"console.log(DataTwo)",
+							"console.log(DataThree)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableUrlEncoding": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"dataone\": {{Value1}},\n    \"dataTwo\": {{Value2}},\n    \"dataThree\": {{Value3}}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://www.postman-echo.com/post",
+					"protocol": "https",
+					"host": [
+						"www",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Other Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"Value2\", \"today\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"www",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
