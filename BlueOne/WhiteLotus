@@ -8,7 +8,7 @@ paths:
   /user:
     get:
       summary: 'Webhook added, changes should now be pushed'
-      operationId: listUser
+      operationId: newData
       tags:
         - user
       parameters:
