@@ -7,7 +7,7 @@ servers:
 paths:
   /user:
     get:
-      summary: 'First trigger from POstman'
+      summary: 'Now any changes should be sent from Github to POstman'
       operationId: listUser
       tags:
         - user
