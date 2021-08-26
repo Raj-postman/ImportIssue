@@ -7,7 +7,7 @@ servers:
 paths:
   /user:
     get:
-      summary: 'Now any changes should be sent from Github to POstman'
+      summary: 'Webhook added, changes should now be pushed'
       operationId: listUser
       tags:
         - user
