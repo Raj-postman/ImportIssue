@@ -120,7 +120,7 @@
       ]
     },
     {
-      "name": "New Request",
+      "name": "GetNew",
       "id": "73651277-a494-4be8-92a0-8d367cbc1ad3",
       "protocolProfileBehavior": {
         "disableBodyPruning": true
