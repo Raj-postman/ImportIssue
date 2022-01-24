@@ -7,7 +7,7 @@
   "item": [
     {
       "name": "Sample endpoint: Returns details about a particular user",
-      "_postman_id": "b415354d-8e62-4788-9648-d9b2bf79c84d",
+      "id": "b415354d-8e62-4788-9648-d9b2bf79c84d",
       "request": {
         "method": "GET",
         "header": [],
@@ -29,47 +29,6 @@
         }
       },
       "response": [
-        {
-          "id": "30c57901-6940-4bcb-bdc8-ff237dd311be",
-          "name": "Unexpected error",
-          "originalRequest": {
-            "method": "GET",
-            "header": [
-              {
-                "description": "Added as a part of security scheme: basic",
-                "key": "Authorization",
-                "value": "Basic <credentials>"
-              }
-            ],
-            "url": {
-              "raw": "{{baseUrl}}/user?id=56537649",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "user"
-              ],
-              "query": [
-                {
-                  "key": "id",
-                  "value": "56537649"
-                }
-              ]
-            }
-          },
-          "status": "Internal Server Error",
-          "code": 500,
-          "_postman_previewlanguage": "json",
-          "header": [
-            {
-              "key": "Content-Type",
-              "value": "application/json"
-            }
-          ],
-          "cookie": [],
-          "responseTime": null,
-          "body": "{\n \"code\": 51976395,\n \"message\": \"dolore tempor\"\n}"
-        },
         {
           "id": "5638462a-014a-41d0-8317-088fe28efa6a",
           "name": "Sample response: Details about a user by ID",
@@ -116,8 +75,62 @@
           "cookie": [],
           "responseTime": null,
           "body": "{\n \"id\": 83073500,\n \"name\": \"Ut aute anim\",\n \"tag\": \"amet \"\n}"
+        },
+        {
+          "id": "30c57901-6940-4bcb-bdc8-ff237dd311be",
+          "name": "Unexpected error",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Added as a part of security scheme: basic",
+                "key": "Authorization",
+                "value": "Basic <credentials>"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user?id=56537649",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "56537649"
+                }
+              ]
+            }
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n \"code\": 51976395,\n \"message\": \"dolore tempor\"\n}"
         }
       ]
+    },
+    {
+      "name": "New Request",
+      "id": "73651277-a494-4be8-92a0-8d367cbc1ad3",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": null
+      },
+      "response": []
     }
   ],
   "auth": {
