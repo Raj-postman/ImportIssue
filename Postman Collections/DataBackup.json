@@ -128,7 +128,7 @@
       "request": {
         "method": "GET",
         "header": [],
-        "url": null
+        "url": "https://www.postman-echo.com/get"
       },
       "response": []
     }
