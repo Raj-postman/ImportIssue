@@ -835,6 +835,48 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "https://postman.zendesk.com/api/reporting",
+      "id": "a891430e-2ad7-487c-9946-3688180cff83",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/plain;charset=UTF-8"
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\"increment\",\"app_framework.client.set\",1,[\"status:success\",\"env:production\",\"pod:23\",\"product:support\"]]"
+        },
+        "url": "https://postman.zendesk.com/api/reporting"
+      },
+      "response": []
     }
   ],
   "auth": {
