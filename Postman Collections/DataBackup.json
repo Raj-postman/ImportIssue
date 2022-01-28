@@ -481,6 +481,86 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "https://pubsub-shard2-23-1.zendesk.com/engine.io-1.4.2/?section=23143&user=374759632134&subdomain=postman&EIO=3&transport=polling&t=NwVU59k&b64=1&sid=Do35wjXsvUVIGiOdAEJb",
+      "id": "e061c22d-d589-420c-86c9-250f338f5231",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          }
+        ],
+        "url": {
+          "raw": "https://pubsub-shard2-23-1.zendesk.com/engine.io-1.4.2/?section=23143&user=374759632134&subdomain=postman&EIO=3&transport=polling&t=NwVU59k&b64=1&sid=Do35wjXsvUVIGiOdAEJb",
+          "protocol": "https",
+          "host": [
+            "pubsub-shard2-23-1",
+            "zendesk",
+            "com"
+          ],
+          "path": [
+            "engine.io-1.4.2",
+            ""
+          ],
+          "query": [
+            {
+              "key": "section",
+              "value": "23143"
+            },
+            {
+              "key": "user",
+              "value": "374759632134"
+            },
+            {
+              "key": "subdomain",
+              "value": "postman"
+            },
+            {
+              "key": "EIO",
+              "value": "3"
+            },
+            {
+              "key": "transport",
+              "value": "polling"
+            },
+            {
+              "key": "t",
+              "value": "NwVU59k"
+            },
+            {
+              "key": "b64",
+              "value": "1"
+            },
+            {
+              "key": "sid",
+              "value": "Do35wjXsvUVIGiOdAEJb"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
