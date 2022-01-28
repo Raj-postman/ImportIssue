@@ -649,64 +649,6 @@
         }
       },
       "response": []
-    },
-    {
-      "name": "https://postman.zendesk.com/api/reporting",
-      "id": "e8bdc929-c7c7-42fb-8a34-cf630aecce42",
-      "protocolProfileBehavior": {
-        "disableBodyPruning": true
-      },
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "sec-ch-ua",
-            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
-          },
-          {
-            "key": "X-Zendesk-App-Installation-Id",
-            "value": "1500002180241"
-          },
-          {
-            "key": "X-CSRF-Token",
-            "value": "ofNntEiVUSulvwjGObQastuGMESQSB3F37lxyYx+1u4="
-          },
-          {
-            "key": "sec-ch-ua-mobile",
-            "value": "?0"
-          },
-          {
-            "key": "User-Agent",
-            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
-          },
-          {
-            "key": "Content-Type",
-            "value": "application/x-www-form-urlencoded; charset=UTF-8"
-          },
-          {
-            "key": "Accept",
-            "value": "*/*"
-          },
-          {
-            "key": "X-Requested-With",
-            "value": "XMLHttpRequest"
-          },
-          {
-            "key": "X-Zendesk-App-Id",
-            "value": "204239"
-          },
-          {
-            "key": "sec-ch-ua-platform",
-            "value": "\"macOS\""
-          }
-        ],
-        "body": {
-          "mode": "raw",
-          "raw": "[\"histogram\",\"statuspage_integration.get_summary\",322,[\"statuspage_url:https://status.postman.com/\",\"app_location:background\",\"zendesk_subdomain:postman\",\"zendesk_product:support\",\"zendesk_ticket_id:undefined\"]]"
-        },
-        "url": "https://postman.zendesk.com/api/reporting"
-      },
-      "response": []
     }
   ],
   "auth": {
