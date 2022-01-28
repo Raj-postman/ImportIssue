@@ -561,6 +561,40 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "https://static.zdassets.com/agent/assets/pod/23/adoption.json",
+      "id": "a23cd166-3df3-48b5-b511-36e90b1c9256",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "url": "https://static.zdassets.com/agent/assets/pod/23/adoption.json"
+      },
+      "response": []
     }
   ],
   "auth": {
