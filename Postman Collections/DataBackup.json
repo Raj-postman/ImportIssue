@@ -877,6 +877,164 @@
         "url": "https://postman.zendesk.com/api/reporting"
       },
       "response": []
+    },
+    {
+      "name": "https://rum-http-intake.logs.datadoghq.com/v1/input/pubc72a3509fb6bd6ec4a7ce97bf176d013?ddsource=browser&ddtags=sdk_version%3A3.11.0%2Cenv%3Aproduction%2Cservice%3Alotus%2Cversion%3A13375&batch_time=1643353071470",
+      "id": "b97cf08b-cebd-4838-b0ea-060570db9f81",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          },
+          {
+            "key": "Content-Type",
+            "value": "text/plain;charset=UTF-8"
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"_dd\":{\"format_version\":2,\"drift\":-4,\"session\":{\"plan\":2}},\"application\":{\"id\":\"a63d4720-552b-4981-b73e-2072e6950fe0\"},\"date\":1643353071467,\"service\":\"lotus\",\"session\":{\"id\":\"821e7b27-412b-4e4c-897a-daa89c9999a9\",\"type\":\"user\"},\"view\":{\"url\":\"https://postman.zendesk.com/agent/tickets/95692\",\"referrer\":\"https://jiraplugin.zendesk.com/\",\"id\":\"be016e2d-3d4b-419c-82fa-70926faa1bfa\",\"in_foreground\":false},\"error\":{\"id\":\"11f734e1-8dcb-47bc-acfb-390a72b0e4ef\",\"message\":\"console error: Tracking Error: TypeError: Cannot read properties of undefined (reading 'url')\",\"source\":\"console\",\"handling_stack\":\"Error: \\n  at console.t.<computed> [as error] @ https://static.zdassets.com/agent/assets/vendor-54c5075cd76b323dca94a31cca591995.js:7121:57\\n  at r @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:15:23484\\n  at e.value @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:15:34342\\n  at d @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:1:62420\",\"handling\":\"handled\"},\"type\":\"error\",\"context\":{\"pod\":\"pod23\",\"account\":{\"account_type\":\"customer\",\"plan_type\":\"3\",\"plan_name\":\"Professional\",\"is_trial\":\"false\"},\"agent_workspace\":\"true\",\"subdomain\":\"postman\",\"features\":{\"appsRecommendations\":true,\"ticketForms\":true,\"safariCompositionFix\":false,\"slateRichTextEditor\":false,\"unifiedAgentStateSwitcher\":false,\"omnicomposerTextColor\":true,\"standaloneEditor\":false,\"agentWorkspaceOmniRedaction\":true,\"emojiSkinTonePicker\":true,\"macrosBff\":false,\"macroMenuSuggestions\":true,\"macroSuggestionsFetchViaAccountSetting\":true,\"omniRedactionPhase2\":true,\"orgModalRefresh\":true,\"reactTabPersistence\":true,\"userModalRefresh\":false,\"viewsRefresh\":true,\"ticketCollisionNotificationRefresh\":true,\"collisionRefresh\":false,\"bulkActionsViewsUpdate\":false,\"deleteTicketModalRefresh\":false,\"destroyTicketModalRefresh\":false,\"suspendedTicketDetailsModalRefresh\":false,\"markTicketAsSuspendedModalRefresh\":false,\"optimizeMacroApply\":false,\"defaultValuesForMultiSelectFields\":false,\"intermediateSlaColor\":false,\"sideConversations\":true,\"sideConversationsCcs\":false,\"sideConversationsCkeditor\":false,\"sideConversationsContextPanel\":false,\"sideConversationsEmail\":true,\"sideConversationsRemoveSignature\":false,\"sideConversationsSlack\":true,\"sideConversationsTicketFields\":false,\"sideConversationsTickets\":true,\"disableSlate\":false,\"disableOmnilogReadreceipts\":false,\"lotusGardenChrome330\":false,\"agentCollisionTs\":true,\"metricsRemoteLogging\":false,\"reactAssignee\":true,\"reactTicketBrandView\":true,\"reactTicketForm\":false,\"reactTicketLegacyCCsView\":false,\"reactTicketLinkedAgreementView\":true,\"reactTicketOrganizationView\":true,\"reactTicketPriority\":false,\"reactTicketPriorityView\":true,\"reactTicketRequesterView\":false,\"reactTicketSubject\":false,\"reactTicketTagsView\":false,\"reactTicketTypeView\":true,\"pageTitles\":false,\"playTickets\":true,\"unlimitedViews\":true,\"hideViewsExport\":false,\"reportBootTimeout\":false,\"assetAdoption\":true,\"voiceOmnilogLoadPlayerWhenVisible\":true,\"debouncedPortalsUpdate\":false,\"acceptChatUseTicketController\":false,\"disableMetricsReporting\":false,\"elementTimingPerformanceMeasure\":false,\"fetchUsingWorkers\":true,\"omnitabSwitching\":true,\"thinTicketSubscriptionTrial\":false,\"appsMetricsSidebarTimeToInteractive\":true,\"appsReactApiAppsTray\":true,\"appsReactApiChannel\":true,\"appsReactApiComment\":true,\"appsReactApiCurrentAccount\":true,\"appsReactApiCurrentUser\":true,\"appsReactApiEnableDisableSave\":true,\"appsReactApiMacro\":true,\"appsReactApiMacros\":true,\"appsReactApiNotification\":false,\"appsReactApiNotify\":true,\"appsReactApiRouteTo\":true,\"appsReactApiShowHide\":true,\"appsReactApiTicket\":false,\"appsReactApiTicketFields\":false,\"appsReactTicketSidebar\":false,\"appsReactApiReporting\":false,\"organizations\":true,\"includeSideConversationsInSearch\":true,\"searchReturnLimitInSearchService\":false,\"searchActivityTracking\":false,\"searchTablesV2\":false,\"disableLotusAdminRoutes\":false,\"reactTables\":true,\"hideSuspendedDeletedTicketViews\":false,\"disableSortingUnsupportedViewsCol\":false,\"presentTicketBulkEditPermission\":false,\"userContextRequestedEndpoint\":true,\"customEvents\":false,\"eventsAndProfilesIntegration\":true,\"nativeConditionalFieldsEnabled\":true,\"statusHold\":true,\"customStatuses\":false,\"customStatusesEnabled\":false,\"adminOnboardStaticTestIds\":false,\"appsAndIntTheme\":true,\"createTicketViaEmail\":true,\"dataIdRefactorTasksTile\":false,\"dataStaticTestIds\":false,\"dataIdRefactorAddTeam\":false,\"directBuy\":false,\"getStartedOptOut\":false,\"highContrastTours\":true,\"persistentHelpButtonTrial\":true,\"startOfTrialRedesign\":true,\"suiteTrial\":false,\"suiteTrialDefaultMessaging\":true,\"suiteTrialDefaultMessagingExperience\":false,\"suiteTrialNavReorder\":true,\"suiteTrialOnboarding\":false,\"webWidgetChatEndRemoval\":true,\"webWidgetRefactor\":false,\"disableSupportWebwidget\":false,\"tourProviderKillSwitch\":false,\"z2TrialExpired\":true,\"customerCareAdminOnly\":false,\"polaris\":true,\"enableComposerForJoinedAgents\":true,\"shortcutsWithSpaces\":true,\"chatTicketAssignmentWithAgentGraph\":true,\"socialMessagingAgentWorkspace\":false,\"allSuncoMessagingChannels\":false,\"socialMessaging\":false,\"nativeMessaging\":false,\"allowMessageTemplates\":true,\"fixMessageFlickering\":true,\"turnOffFbUserProfileDeepLink\":true,\"emailSimplifiedThreading\":false,\"emailSimplifiedThreadingOnboarding\":false,\"multipleSchedules\":false,\"talkEnableUnifiedAgentStatus\":false,\"talkToggleRecording\":false,\"talkTransferOnlyState\":true,\"talkTransferSearchShowEndUsers\":true,\"talkTwilioIssuesNotification\":true,\"talkZ2Integration\":true,\"multibrand\":false,\"skipResolvingConditions\":false,\"omnicomposer\":true,\"omnicomposerInChannelFramework\":true,\"omnilogEventTypes\":false,\"showReengagementEvent\":true,\"convologQuickAssign\":true,\"convologUsingAgentGraph\":false,\"useUseridCommentFlag11\":true,\"assigneeDropdownTruncatesVisibleGroups\":false,\"assigneeDropdownTruncatesVisibleUsers\":false,\"assigneeDropdownAgentGraph\":true,\"consumeOptimizedChatPresenceQueries\":true,\"chatTransferByNonChattingAgent\":false,\"channelSwitchingOnboarding\":true,\"validateCurrentUser\":false,\"fixTicketSkillsCache\":false,\"newAdminSkills\":false,\"centralAdminStaffMgmtRolesTab\":true,\"reactUserPage\":false,\"centralAdminSupportMigration\":true,\"customObjectsOmniPanel\":false,\"omnipanel\":true,\"contextPanel\":true,\"flexibleLayoutInTicketContextPanel\":true,\"flexibleLayoutInTicketContextPanelOnboarding\":true,\"customerContextMetrics\":true,\"customerContextMountMetrics\":false,\"ruleUsageStats\":true,\"triggerCategories\":true,\"triggerCategoriesApi\":true,\"moveToCategoryBulkAction\":false,\"triggersTableReactWindow\":false,\"enableTriggerCustomFieldSearch\":true,\"guideInAgentWorkspace\":true,\"knowledgeArticleCreation\":true,\"knowledgeArticleFeedback\":true,\"knowledgeExternalContent\":false,\"removeDuplicatedOmnilogComments\":true,\"multiAgentCollaborationPhase1\":false,\"userProfileFix\":true,\"customerAndOrgListsNavigation\":true,\"reactOrgList\":false,\"reactCustomerList\":false,\"userViews\":false,\"paymentWarningModal\":true,\"mssAttachments\":false,\"graphqlPlayground\":false,\"lookupRelationshipTicketField\":false,\"lookupFieldReverseIndex\":false,\"messagingTaskAdapter\":false}},\"usr\":{\"id\":\"374759632134\"}}\n{\"_dd\":{\"format_version\":2,\"drift\":-4,\"session\":{\"plan\":2}},\"application\":{\"id\":\"a63d4720-552b-4981-b73e-2072e6950fe0\"},\"date\":1643353071469,\"service\":\"lotus\",\"session\":{\"id\":\"821e7b27-412b-4e4c-897a-daa89c9999a9\",\"type\":\"user\"},\"view\":{\"url\":\"https://postman.zendesk.com/agent/tickets/95692\",\"referrer\":\"https://jiraplugin.zendesk.com/\",\"id\":\"be016e2d-3d4b-419c-82fa-70926faa1bfa\",\"in_foreground\":false},\"error\":{\"id\":\"df14bdf6-e166-4b4f-b948-779d02c9deff\",\"message\":\"console error: Tracking Error: TypeError: Cannot read properties of undefined (reading 'url')\",\"source\":\"console\",\"handling_stack\":\"Error: \\n  at console.t.<computed> [as error] @ https://static.zdassets.com/agent/assets/vendor-54c5075cd76b323dca94a31cca591995.js:7121:57\\n  at r @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:15:23484\\n  at e.value @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:15:34342\\n  at d @ https://static.zdassets.com/zendesk_app_framework/pod23/framework.min.js:1:62420\",\"handling\":\"handled\"},\"type\":\"error\",\"context\":{\"pod\":\"pod23\",\"account\":{\"account_type\":\"customer\",\"plan_type\":\"3\",\"plan_name\":\"Professional\",\"is_trial\":\"false\"},\"agent_workspace\":\"true\",\"subdomain\":\"postman\",\"features\":{\"appsRecommendations\":true,\"ticketForms\":true,\"safariCompositionFix\":false,\"slateRichTextEditor\":false,\"unifiedAgentStateSwitcher\":false,\"omnicomposerTextColor\":true,\"standaloneEditor\":false,\"agentWorkspaceOmniRedaction\":true,\"emojiSkinTonePicker\":true,\"macrosBff\":false,\"macroMenuSuggestions\":true,\"macroSuggestionsFetchViaAccountSetting\":true,\"omniRedactionPhase2\":true,\"orgModalRefresh\":true,\"reactTabPersistence\":true,\"userModalRefresh\":false,\"viewsRefresh\":true,\"ticketCollisionNotificationRefresh\":true,\"collisionRefresh\":false,\"bulkActionsViewsUpdate\":false,\"deleteTicketModalRefresh\":false,\"destroyTicketModalRefresh\":false,\"suspendedTicketDetailsModalRefresh\":false,\"markTicketAsSuspendedModalRefresh\":false,\"optimizeMacroApply\":false,\"defaultValuesForMultiSelectFields\":false,\"intermediateSlaColor\":false,\"sideConversations\":true,\"sideConversationsCcs\":false,\"sideConversationsCkeditor\":false,\"sideConversationsContextPanel\":false,\"sideConversationsEmail\":true,\"sideConversationsRemoveSignature\":false,\"sideConversationsSlack\":true,\"sideConversationsTicketFields\":false,\"sideConversationsTickets\":true,\"disableSlate\":false,\"disableOmnilogReadreceipts\":false,\"lotusGardenChrome330\":false,\"agentCollisionTs\":true,\"metricsRemoteLogging\":false,\"reactAssignee\":true,\"reactTicketBrandView\":true,\"reactTicketForm\":false,\"reactTicketLegacyCCsView\":false,\"reactTicketLinkedAgreementView\":true,\"reactTicketOrganizationView\":true,\"reactTicketPriority\":false,\"reactTicketPriorityView\":true,\"reactTicketRequesterView\":false,\"reactTicketSubject\":false,\"reactTicketTagsView\":false,\"reactTicketTypeView\":true,\"pageTitles\":false,\"playTickets\":true,\"unlimitedViews\":true,\"hideViewsExport\":false,\"reportBootTimeout\":false,\"assetAdoption\":true,\"voiceOmnilogLoadPlayerWhenVisible\":true,\"debouncedPortalsUpdate\":false,\"acceptChatUseTicketController\":false,\"disableMetricsReporting\":false,\"elementTimingPerformanceMeasure\":false,\"fetchUsingWorkers\":true,\"omnitabSwitching\":true,\"thinTicketSubscriptionTrial\":false,\"appsMetricsSidebarTimeToInteractive\":true,\"appsReactApiAppsTray\":true,\"appsReactApiChannel\":true,\"appsReactApiComment\":true,\"appsReactApiCurrentAccount\":true,\"appsReactApiCurrentUser\":true,\"appsReactApiEnableDisableSave\":true,\"appsReactApiMacro\":true,\"appsReactApiMacros\":true,\"appsReactApiNotification\":false,\"appsReactApiNotify\":true,\"appsReactApiRouteTo\":true,\"appsReactApiShowHide\":true,\"appsReactApiTicket\":false,\"appsReactApiTicketFields\":false,\"appsReactTicketSidebar\":false,\"appsReactApiReporting\":false,\"organizations\":true,\"includeSideConversationsInSearch\":true,\"searchReturnLimitInSearchService\":false,\"searchActivityTracking\":false,\"searchTablesV2\":false,\"disableLotusAdminRoutes\":false,\"reactTables\":true,\"hideSuspendedDeletedTicketViews\":false,\"disableSortingUnsupportedViewsCol\":false,\"presentTicketBulkEditPermission\":false,\"userContextRequestedEndpoint\":true,\"customEvents\":false,\"eventsAndProfilesIntegration\":true,\"nativeConditionalFieldsEnabled\":true,\"statusHold\":true,\"customStatuses\":false,\"customStatusesEnabled\":false,\"adminOnboardStaticTestIds\":false,\"appsAndIntTheme\":true,\"createTicketViaEmail\":true,\"dataIdRefactorTasksTile\":false,\"dataStaticTestIds\":false,\"dataIdRefactorAddTeam\":false,\"directBuy\":false,\"getStartedOptOut\":false,\"highContrastTours\":true,\"persistentHelpButtonTrial\":true,\"startOfTrialRedesign\":true,\"suiteTrial\":false,\"suiteTrialDefaultMessaging\":true,\"suiteTrialDefaultMessagingExperience\":false,\"suiteTrialNavReorder\":true,\"suiteTrialOnboarding\":false,\"webWidgetChatEndRemoval\":true,\"webWidgetRefactor\":false,\"disableSupportWebwidget\":false,\"tourProviderKillSwitch\":false,\"z2TrialExpired\":true,\"customerCareAdminOnly\":false,\"polaris\":true,\"enableComposerForJoinedAgents\":true,\"shortcutsWithSpaces\":true,\"chatTicketAssignmentWithAgentGraph\":true,\"socialMessagingAgentWorkspace\":false,\"allSuncoMessagingChannels\":false,\"socialMessaging\":false,\"nativeMessaging\":false,\"allowMessageTemplates\":true,\"fixMessageFlickering\":true,\"turnOffFbUserProfileDeepLink\":true,\"emailSimplifiedThreading\":false,\"emailSimplifiedThreadingOnboarding\":false,\"multipleSchedules\":false,\"talkEnableUnifiedAgentStatus\":false,\"talkToggleRecording\":false,\"talkTransferOnlyState\":true,\"talkTransferSearchShowEndUsers\":true,\"talkTwilioIssuesNotification\":true,\"talkZ2Integration\":true,\"multibrand\":false,\"skipResolvingConditions\":false,\"omnicomposer\":true,\"omnicomposerInChannelFramework\":true,\"omnilogEventTypes\":false,\"showReengagementEvent\":true,\"convologQuickAssign\":true,\"convologUsingAgentGraph\":false,\"useUseridCommentFlag11\":true,\"assigneeDropdownTruncatesVisibleGroups\":false,\"assigneeDropdownTruncatesVisibleUsers\":false,\"assigneeDropdownAgentGraph\":true,\"consumeOptimizedChatPresenceQueries\":true,\"chatTransferByNonChattingAgent\":false,\"channelSwitchingOnboarding\":true,\"validateCurrentUser\":false,\"fixTicketSkillsCache\":false,\"newAdminSkills\":false,\"centralAdminStaffMgmtRolesTab\":true,\"reactUserPage\":false,\"centralAdminSupportMigration\":true,\"customObjectsOmniPanel\":false,\"omnipanel\":true,\"contextPanel\":true,\"flexibleLayoutInTicketContextPanel\":true,\"flexibleLayoutInTicketContextPanelOnboarding\":true,\"customerContextMetrics\":true,\"customerContextMountMetrics\":false,\"ruleUsageStats\":true,\"triggerCategories\":true,\"triggerCategoriesApi\":true,\"moveToCategoryBulkAction\":false,\"triggersTableReactWindow\":false,\"enableTriggerCustomFieldSearch\":true,\"guideInAgentWorkspace\":true,\"knowledgeArticleCreation\":true,\"knowledgeArticleFeedback\":true,\"knowledgeExternalContent\":false,\"removeDuplicatedOmnilogComments\":true,\"multiAgentCollaborationPhase1\":false,\"userProfileFix\":true,\"customerAndOrgListsNavigation\":true,\"reactOrgList\":false,\"reactCustomerList\":false,\"userViews\":false,\"paymentWarningModal\":true,\"mssAttachments\":false,\"graphqlPlayground\":false,\"lookupRelationshipTicketField\":false,\"lookupFieldReverseIndex\":false,\"messagingTaskAdapter\":false}},\"usr\":{\"id\":\"374759632134\"}}"
+        },
+        "url": {
+          "raw": "https://rum-http-intake.logs.datadoghq.com/v1/input/pubc72a3509fb6bd6ec4a7ce97bf176d013?ddsource=browser&ddtags=sdk_version%3A3.11.0%2Cenv%3Aproduction%2Cservice%3Alotus%2Cversion%3A13375&batch_time=1643353071470",
+          "protocol": "https",
+          "host": [
+            "rum-http-intake",
+            "logs",
+            "datadoghq",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "input",
+            "pubc72a3509fb6bd6ec4a7ce97bf176d013"
+          ],
+          "query": [
+            {
+              "key": "ddsource",
+              "value": "browser"
+            },
+            {
+              "key": "ddtags",
+              "value": "sdk_version%3A3.11.0%2Cenv%3Aproduction%2Cservice%3Alotus%2Cversion%3A13375"
+            },
+            {
+              "key": "batch_time",
+              "value": "1643353071470"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "https://pubsub-shard2-23-1.zendesk.com/engine.io-1.4.2/?section=23143&user=374759632134&subdomain=postman&EIO=3&transport=polling&t=NwVUUVj&b64=1&sid=Do35wjXsvUVIGiOdAEJb",
+      "id": "0112afbb-8f5a-4b85-9e58-53cc6c3a5c35",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Content-type",
+            "value": "text/plain;charset=UTF-8"
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "1:2"
+        },
+        "url": {
+          "raw": "https://pubsub-shard2-23-1.zendesk.com/engine.io-1.4.2/?section=23143&user=374759632134&subdomain=postman&EIO=3&transport=polling&t=NwVUUVj&b64=1&sid=Do35wjXsvUVIGiOdAEJb",
+          "protocol": "https",
+          "host": [
+            "pubsub-shard2-23-1",
+            "zendesk",
+            "com"
+          ],
+          "path": [
+            "engine.io-1.4.2",
+            ""
+          ],
+          "query": [
+            {
+              "key": "section",
+              "value": "23143"
+            },
+            {
+              "key": "user",
+              "value": "374759632134"
+            },
+            {
+              "key": "subdomain",
+              "value": "postman"
+            },
+            {
+              "key": "EIO",
+              "value": "3"
+            },
+            {
+              "key": "transport",
+              "value": "polling"
+            },
+            {
+              "key": "t",
+              "value": "NwVUUVj"
+            },
+            {
+              "key": "b64",
+              "value": "1"
+            },
+            {
+              "key": "sid",
+              "value": "Do35wjXsvUVIGiOdAEJb"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
