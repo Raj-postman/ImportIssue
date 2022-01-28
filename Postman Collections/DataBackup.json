@@ -782,6 +782,59 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "https://ssl.gstatic.com/dynamite/images/cleardot.gif?zx=hzje6s4zfiu0",
+      "id": "b5b0da81-15ac-49a1-91bd-454d27160bce",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "sec-ch-ua",
+            "value": "\" Not;A Brand\";v=\"99\", \"Google Chrome\";v=\"97\", \"Chromium\";v=\"97\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.99 Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"macOS\""
+          },
+          {
+            "key": "Accept",
+            "value": "*/*"
+          }
+        ],
+        "url": {
+          "raw": "https://ssl.gstatic.com/dynamite/images/cleardot.gif?zx=hzje6s4zfiu0",
+          "protocol": "https",
+          "host": [
+            "ssl",
+            "gstatic",
+            "com"
+          ],
+          "path": [
+            "dynamite",
+            "images",
+            "cleardot.gif"
+          ],
+          "query": [
+            {
+              "key": "zx",
+              "value": "hzje6s4zfiu0"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ],
   "auth": {
