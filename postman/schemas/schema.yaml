@@ -1,0 +1,1600 @@
+openapi: 3.0.2
+info:
+  title: 'Canvas APIs'
+  version: 1.0.17-beta
+security:
+  - ApiKeyAuth: []
+paths:
+  /v4/canvas/screens:
+    get:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: getScreenCollection
+      summary: Retrieves the collection of Screen resources.
+      responses:
+        '200':
+          description: Screen collection response
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member':
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Screen-jsonld-read'
+                  'hydra:totalItems':
+                    type: integer
+                    minimum: 0
+                  'hydra:view':
+                    type: object
+                    properties:
+                      '@id':
+                        type: string
+                        format: iri-reference
+                      '@type':
+                        type: string
+                      'hydra:first':
+                        type: string
+                        format: iri-reference
+                      'hydra:last':
+                        type: string
+                        format: iri-reference
+                      'hydra:next':
+                        type: string
+                        format: iri-reference
+                  'hydra:search':
+                    type: object
+                    properties:
+                      '@type':
+                        type: string
+                      'hydra:template':
+                        type: string
+                      'hydra:variableRepresentation':
+                        type: string
+                      'hydra:mapping':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '@type':
+                              type: string
+                            variable:
+                              type: string
+                            property:
+                              type: string
+                            required:
+                              type: boolean
+                required:
+                  - 'hydra:member'
+      parameters:
+        - name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[createdAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[updatedAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: reference
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: 'reference[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - discover
+              - shop
+              - events
+              - wallet
+              - booking
+              - lineup
+              - generic
+              - social
+        - name: 'type[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - discover
+                - shop
+                - events
+                - wallet
+                - booking
+                - lineup
+                - generic
+                - social
+          style: form
+          explode: true
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          schema:
+            type: integer
+            default: 1
+    post:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: postScreenCollection
+      summary: Creates a Screen resource.
+      responses:
+        '201':
+          description: Screen resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Screen-jsonld-read'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Screen-jsonld-write'
+        description: The new Screen resource
+  '/v4/canvas/screens/{id}':
+    get:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: getScreenItem
+      summary: Retrieves a Screen resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Screen resource response
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Screen-jsonld-read'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: deleteScreenItem
+      summary: Removes the Screen resource.
+      responses:
+        '204':
+          description: Screen resource deleted
+        '400':
+          description: Resource not found
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+    patch:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: patchScreenItem
+      summary: Updates the Screen resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Screen resource updated
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Screen-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Screen-jsonld-write'
+        description: The updated Screen resource
+    put:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: putScreenItem
+      summary: Replaces the Screen resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Screen resource replaced
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Screen-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Screen-jsonld-write'
+        description: The replaced Screen resource
+  '/v4/canvas/screens/{id}/widgets_by_audience':
+    get:
+      tags:
+        - Screen
+        - Canvas
+        - Content Management
+      operationId: getScreenWidgetsByAudience
+      summary: Retrieves a collection of Widget resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: timestamp
+          in: query
+          required: true
+          schema:
+            type: integer
+        - name: audience
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: 'audience[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              example: '{audience_id}'
+          style: form
+          explode: true
+      responses:
+        '200':
+          description: Widget collection response
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member':
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ScreenWidget-jsonld-read'
+                  'hydra:totalItems':
+                    type: integer
+                    minimum: 0
+                  'hydra:view':
+                    type: object
+                    properties:
+                      '@id':
+                        type: string
+                        format: iri-reference
+                      '@type':
+                        type: string
+                      'hydra:first':
+                        type: string
+                        format: iri-reference
+                      'hydra:last':
+                        type: string
+                        format: iri-reference
+                      'hydra:next':
+                        type: string
+                        format: iri-reference
+                  'hydra:search':
+                    type: object
+                    properties:
+                      '@type':
+                        type: string
+                      'hydra:template':
+                        type: string
+                      'hydra:variableRepresentation':
+                        type: string
+                      'hydra:mapping':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '@type':
+                              type: string
+                            variable:
+                              type: string
+                            property:
+                              type: string
+                            required:
+                              type: boolean
+                required:
+                  - 'hydra:member'
+  /v4/canvas/screen_variations:
+    get:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: getScreenVariationCollection
+      summary: Retrieves the collection of ScreenVariation resources.
+      responses:
+        '200':
+          description: ScreenVariation collection response
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member':
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ScreenVariation-jsonld-read'
+                  'hydra:totalItems':
+                    type: integer
+                    minimum: 0
+                  'hydra:view':
+                    type: object
+                    properties:
+                      '@id':
+                        type: string
+                        format: iri-reference
+                      '@type':
+                        type: string
+                      'hydra:first':
+                        type: string
+                        format: iri-reference
+                      'hydra:last':
+                        type: string
+                        format: iri-reference
+                      'hydra:next':
+                        type: string
+                        format: iri-reference
+                  'hydra:search':
+                    type: object
+                    properties:
+                      '@type':
+                        type: string
+                      'hydra:template':
+                        type: string
+                      'hydra:variableRepresentation':
+                        type: string
+                      'hydra:mapping':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '@type':
+                              type: string
+                            variable:
+                              type: string
+                            property:
+                              type: string
+                            required:
+                              type: boolean
+                required:
+                  - 'hydra:member'
+      parameters:
+        - name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[createdAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[updatedAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[priority]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: screen
+          in: query
+          required: false
+          schema:
+            type: string
+            example: '/canvas/screens/{id}'
+        - name: 'screen[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              example: '/canvas/screens/{id}'
+          style: form
+          explode: true
+        - name: audience
+          in: query
+          required: false
+          schema:
+            type: string
+            example: '/user_management/audiences/{id}'
+        - name: 'audience[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              example: '/user_management/audiences/{id}'
+          style: form
+          explode: true
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          schema:
+            type: integer
+            default: 1
+    post:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: postScreenVariationCollection
+      summary: Creates a ScreenVariation resource.
+      responses:
+        '201':
+          description: ScreenVariation resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ScreenVariation-jsonld-read'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/ScreenVariation-jsonld-write'
+        description: The new ScreenVariation resource
+  '/v4/canvas/screen_variations/{id}':
+    get:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: getScreenVariationItem
+      summary: Retrieves a ScreenVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ScreenVariation resource response
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ScreenVariation-jsonld-read'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: deleteScreenVariationItem
+      summary: Removes the ScreenVariation resource.
+      responses:
+        '204':
+          description: ScreenVariation resource deleted
+        '400':
+          description: Resource not found
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+    patch:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: patchScreenVariationItem
+      summary: Updates the ScreenVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ScreenVariation resource updated
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ScreenVariation-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ScreenVariation-jsonld-write'
+        description: The updated ScreenVariation resource
+    put:
+      tags:
+        - ScreenVariation
+        - Canvas
+        - Content Management
+      operationId: putScreenVariationItem
+      summary: Replaces the ScreenVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ScreenVariation resource replaced
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/ScreenVariation-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/ScreenVariation-jsonld-write'
+        description: The replaced ScreenVariation resource
+  /v4/canvas/widgets:
+    get:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: getWidgetCollection
+      summary: Retrieves the collection of Widget resources.
+      responses:
+        '200':
+          description: Widget collection response
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member':
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Widget-jsonld-read'
+                  'hydra:totalItems':
+                    type: integer
+                    minimum: 0
+                  'hydra:view':
+                    type: object
+                    properties:
+                      '@id':
+                        type: string
+                        format: iri-reference
+                      '@type':
+                        type: string
+                      'hydra:first':
+                        type: string
+                        format: iri-reference
+                      'hydra:last':
+                        type: string
+                        format: iri-reference
+                      'hydra:next':
+                        type: string
+                        format: iri-reference
+                  'hydra:search':
+                    type: object
+                    properties:
+                      '@type':
+                        type: string
+                      'hydra:template':
+                        type: string
+                      'hydra:variableRepresentation':
+                        type: string
+                      'hydra:mapping':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '@type':
+                              type: string
+                            variable:
+                              type: string
+                            property:
+                              type: string
+                            required:
+                              type: boolean
+                required:
+                  - 'hydra:member'
+      parameters:
+        - name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[createdAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[updatedAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: title
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: 'title[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          schema:
+            type: integer
+            default: 1
+    post:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: postWidgetCollection
+      summary: Creates a Widget resource.
+      responses:
+        '201':
+          description: Widget resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Widget-jsonld-read'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/Widget-jsonld-write'
+        description: The new Widget resource
+  '/v4/canvas/widgets/{id}':
+    get:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: getWidgetItem
+      summary: Retrieves a Widget resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Widget resource response
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Widget-jsonld-read'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: deleteWidgetItem
+      summary: Removes the Widget resource.
+      responses:
+        '204':
+          description: Widget resource deleted
+        '400':
+          description: Resource not found
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+    patch:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: patchWidgetItem
+      summary: Updates the Widget resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Widget resource updated
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Widget-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Widget-jsonld-write'
+        description: The updated Widget resource
+    put:
+      tags:
+        - Widget
+        - Canvas
+        - Content Management
+      operationId: putWidgetItem
+      summary: Replaces the Widget resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Widget resource replaced
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/Widget-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/Widget-jsonld-write'
+        description: The replaced Widget resource
+  /v4/canvas/widget_variations:
+    get:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: getWidgetVariationCollection
+      summary: Retrieves the collection of WidgetVariation resources.
+      responses:
+        '200':
+          description: WidgetVariation collection response
+          content:
+            application/ld+json:
+              schema:
+                type: object
+                properties:
+                  'hydra:member':
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/WidgetVariation-jsonld-read'
+                  'hydra:totalItems':
+                    type: integer
+                    minimum: 0
+                  'hydra:view':
+                    type: object
+                    properties:
+                      '@id':
+                        type: string
+                        format: iri-reference
+                      '@type':
+                        type: string
+                      'hydra:first':
+                        type: string
+                        format: iri-reference
+                      'hydra:last':
+                        type: string
+                        format: iri-reference
+                      'hydra:next':
+                        type: string
+                        format: iri-reference
+                  'hydra:search':
+                    type: object
+                    properties:
+                      '@type':
+                        type: string
+                      'hydra:template':
+                        type: string
+                      'hydra:variableRepresentation':
+                        type: string
+                      'hydra:mapping':
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            '@type':
+                              type: string
+                            variable:
+                              type: string
+                            property:
+                              type: string
+                            required:
+                              type: boolean
+                required:
+                  - 'hydra:member'
+      parameters:
+        - name: 'order[id]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[createdAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: 'order[updatedAt]'
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: title
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: 'title[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+          style: form
+          explode: true
+        - name: widget
+          in: query
+          required: false
+          schema:
+            type: string
+            example: '/canvas/widgets/{id}'
+        - name: 'widget[]'
+          in: query
+          required: false
+          schema:
+            type: array
+            items:
+              type: string
+              example: '/canvas/widgets/{id}'
+          style: form
+          explode: true
+        - name: page
+          in: query
+          required: false
+          description: The collection page number
+          schema:
+            type: integer
+            default: 1
+    post:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: postWidgetVariationCollection
+      summary: Creates a WidgetVariation resource.
+      responses:
+        '201':
+          description: WidgetVariation resource created
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/WidgetVariation-jsonld-read'
+        '400':
+          description: Invalid input
+      requestBody:
+        content:
+          application/ld+json:
+            schema:
+              $ref: '#/components/schemas/WidgetVariation-jsonld-write'
+        description: The new WidgetVariation resource
+  '/v4/canvas/widget_variations/{id}':
+    get:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: getWidgetVariationItem
+      summary: Retrieves a WidgetVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: WidgetVariation resource response
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/WidgetVariation-jsonld-read'
+        '404':
+          description: Resource not found
+    delete:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: deleteWidgetVariationItem
+      summary: Removes the WidgetVariation resource.
+      responses:
+        '204':
+          description: WidgetVariation resource deleted
+        '400':
+          description: Resource not found
+        '404':
+          description: Resource not found
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+    patch:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: patchWidgetVariationItem
+      summary: Updates the WidgetVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: WidgetVariation resource updated
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/WidgetVariation-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/WidgetVariation-jsonld-write'
+        description: The updated WidgetVariation resource
+    put:
+      tags:
+        - WidgetVariation
+        - Canvas
+        - Content Management
+      operationId: putWidgetVariationItem
+      summary: Replaces the WidgetVariation resource.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: WidgetVariation resource replaced
+          content:
+            application/ld+json:
+              schema:
+                $ref: '#/components/schemas/WidgetVariation-jsonld-read'
+        '400':
+          description: Invalid input
+        '404':
+          description: Resource not found
+      requestBody:
+        content:
+          application/merge-patch+json:
+            schema:
+              $ref: '#/components/schemas/WidgetVariation-jsonld-write'
+        description: The replaced WidgetVariation resource
+components:
+  schemas:
+    Screen-jsonld-read:
+      title: Screen-read
+      type: object
+      properties:
+        '@context':
+          type: string
+          example: Screen
+        '@id':
+          type: string
+        reference:
+          type: string
+        screenType:
+          type: string
+          enum:
+            - discover
+            - shop
+            - events
+            - wallet
+            - booking
+            - lineup
+            - social
+            - generic
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              language:
+                type: string
+                example: en
+              title:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Screen-jsonld-write:
+      title: Screen-read
+      type: object
+      properties:
+        reference:
+          type: string
+        screenType:
+          type: string
+          enum:
+            - discover
+            - shop
+            - events
+            - wallet
+            - booking
+            - lineup
+            - social
+            - generic
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              language:
+                type: string
+                example: en
+              title:
+                type: string
+    ScreenVariation-jsonld-read:
+      title: ScreenVariation-read
+      type: object
+      properties:
+        '@context':
+          type: string
+          example: Screen
+        '@id':
+          type: string
+        screen:
+          type: string
+          example: '/canvas/screens/{id}'
+        audience:
+          type: string
+          example: '/user_management/audiences/{id}'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+        reference:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ScreenVariation-jsonld-write:
+      title: ScreenVariation-write
+      type: object
+      properties:
+        screen:
+          type: string
+          example: '/canvas/screens/{id}'
+        audience:
+          type: string
+          example: '/user_management/audiences/{id}'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+        reference:
+          type: string
+    Widget-jsonld-read:
+      title: Widget-read
+      type: object
+      properties:
+        '@context':
+          type: string
+          example: Widget
+        '@id':
+          type: string
+        screenVariation:
+          type: string
+          example: '/canvas/screen_variations/{id}'
+        contentType:
+          type: string
+          enum:
+            - Product
+            - Button
+            - Banner
+            - Event
+            - Fixture
+            - CountdownClock
+            - GalleryCoverImage
+            - News
+            - Ticket
+            - TicketProduct
+            - FulfilmentPoint
+            - SocialPost
+            - FulfilmentPointCategorySelector
+            - SelectedEvent
+        style:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - PAGER
+                - CAROUSEL
+                - LIST
+            size:
+              type: string
+              enum:
+                - SMALL
+                - MEDIUM
+                - LARGE
+            padded:
+              type: boolean
+        viewAllUrl:
+          type: string
+        position:
+          type: integer
+        reference:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Widget-jsonld-write:
+      title: Widget-write
+      type: object
+      properties:
+        screenVariation:
+          type: string
+          example: '/canvas/screen_variations/{id}'
+        contentType:
+          type: string
+          enum:
+            - Product
+            - Button
+            - Banner
+            - Event
+            - Fixture
+            - CountdownClock
+            - GalleryCoverImage
+            - News
+            - Ticket
+            - TicketProduct
+            - FulfilmentPoint
+            - SocialPost
+            - FulfilmentPointCategorySelector
+            - SelectedEvent
+        style:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - PAGER
+                - CAROUSEL
+                - LIST
+            size:
+              type: string
+              enum:
+                - SMALL
+                - MEDIUM
+                - LARGE
+            padded:
+              type: boolean
+        viewAllUrl:
+          type: string
+        position:
+          type: integer
+        reference:
+          type: string
+    WidgetVariation-jsonld-read:
+      title: WidgetVariation-read
+      type: object
+      properties:
+        '@context':
+          type: string
+          example: WidgetVariation
+        '@id':
+          type: string
+        widget:
+          type: string
+          example: '/canvas/widgets/{id}'
+        audience:
+          type: string
+          example: '/user_management/audiences/{id}'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+        logicIntegration:
+          type: object
+          properties:
+            integration:
+              type: string
+              example: '/integration/integrations/{id}'
+            campaignId:
+              type: string
+        fetchType:
+          type: string
+          enum:
+            - featured
+            - feed
+        contentIds:
+          type: array
+          items:
+            type: string
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              language:
+                type: string
+                example: en
+              title:
+                type: string
+        params:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+        engagementParams:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    WidgetVariation-jsonld-write:
+      title: WidgetVariation-write
+      type: object
+      properties:
+        widget:
+          type: string
+          example: '/canvas/widgets/{id}'
+        audience:
+          type: string
+          example: '/user_management/audiences/{id}'
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+        logicIntegration:
+          type: object
+          properties:
+            integration:
+              type: string
+              example: '/integration/integrations/{id}'
+            campaignId:
+              type: string
+        title:
+          type: string
+        fetchType:
+          type: string
+          enum:
+            - featured
+            - feed
+        contentIds:
+          type: array
+          items:
+            type: string
+        translations:
+          type: array
+          items:
+            type: object
+            properties:
+              language:
+                type: string
+                example: en
+              title:
+                type: string
+        params:
+          type: array
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+    ScreenWidget-jsonld-read:
+      title: ScreenWidget-read
+      type: object
+      properties:
+        '@context':
+          type: string
+          example: Widget
+        '@id':
+          type: string
+        contentType:
+          type: string
+          enum:
+            - Product
+            - Button
+            - Banner
+            - Event
+            - Fixture
+            - CountdownClock
+            - GalleryCoverImage
+            - News
+            - Ticket
+            - FulfilmentPoint
+            - SocialPost
+            - FulfilmentPointCategory
+        style:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - PAGER
+                - CAROUSEL
+                - LIST
+            size:
+              type: string
+              enum:
+                - SMALL
+                - MEDIUM
+                - LARGE
+            padded:
+              type: boolean
+        viewAllUrl:
+          type: string
+        variation:
+          type: object
+          properties:
+            '@context':
+              type: string
+              example: WidgetVariation
+            '@id':
+              type: string
+            title:
+              type: string
+            fetchType:
+              type: string
+              enum:
+                - featured
+                - feed
+            contentIds:
+              type: array
+              items:
+                type: string
+            params:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+            engagementParams:
+              type: array
+              items:
+                type: object
+                properties:
+                  key:
+                    type: string
+                  value:
+                    type: string
+    HydraMapping:
+      title: HydraMapping
+      type: object
+      properties:
+        '@type':
+          type: string
+        variable:
+          type: string
+        property:
+          type: string
+        required:
+          type: boolean
+    HydraSearch:
+      title: HydraSearch
+      type: object
+      properties:
+        '@type':
+          type: string
+        'hydra:template':
+          type: string
+        'hydra:variableRepresentation':
+          type: string
+        'hydra:mapping':
+          type: array
+          items:
+            $ref: '#/components/schemas/HydraMapping'
+          description: ''
+    HydraView:
+      title: HydraView
+      type: object
+      properties:
+        '@id':
+          type: string
+        '@type':
+          type: string
+        'hydra:first':
+          type: string
+          format: iri-reference
+        'hydra:last':
+          type: string
+          format: iri-reference
+        'hydra:next':
+          type: string
+          format: iri-reference
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+servers:
+  - description: Dev API
+    url: 'http://dev-apiv3.sandbox.realifetech.com'
+  - description: Staging API
+    url: 'https://api-staging.livestyled.com'
+  - description: SwaggerHub API Auto Mocking
+    url: 'https://virtserver.swaggerhub.com/Realife/realife_v4/1.0.7'
